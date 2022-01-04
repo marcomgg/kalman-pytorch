@@ -2,4 +2,4 @@
 An implementation of the kalman filter with Pytorch.
 
 The model support both linear and extended kalman fileters/smoothers. <br/>
-It is possible to backpropagate through the filter to compute gradiends.
+It is possible to backpropagate through the filter to compute gradients  with respect to the parameters and input.
