@@ -102,6 +102,10 @@ class LinearSystem(System):
 
 
 class NonLinearSystem(System):
+    '''
+        Base class for a non linear system, derive this and implement
+        the members forward, f and h using PyTorch function
+    '''
     def linearize(self, x, u):
         x.requires_grad = True
         f = self.f(x, u)
