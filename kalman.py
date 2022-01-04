@@ -101,6 +101,16 @@ class LinearSystem(System):
         return self.a[None, :, :], self.c[None, :, :]
 
 
+class NonLinearSystem(System):
+    def linearize(self, x, u):
+        x.requires_grad = True
+        f = self.f(x, u)
+        h = self.h(x, u)
+        F = jacobian(x, f)
+        H = jacobian(x, h)
+        return F, H
+
+
 class Kalman(nn.Module):
     """"
         Module that implements a Kalman filter, we follow the notation from
